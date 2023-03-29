@@ -21,7 +21,7 @@ def animation(screen):
               transparent=False,
               ),
         Print(screen,
-              FigletText("Real Practice Game", "banner"),
+              FigletText("Pythons wars", "banner"),
               screen.height - 15,
               colour=Screen.COLOUR_WHITE,
               bg=Screen.COLOUR_WHITE,
@@ -38,7 +38,10 @@ def animation(screen):
 
 
 def run_screensaver():
-    Screen.wrapper(animation)
+    try:
+        Screen.wrapper(animation)
+    except ResizeScreenError:
+        run_screensaver()
 
 
 if __name__ == "__main__":
